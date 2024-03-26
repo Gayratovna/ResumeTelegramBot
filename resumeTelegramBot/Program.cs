@@ -13,7 +13,9 @@ namespace resumeTelegramBot
         const string aboutMeCommand = "About me";
         const string contactCommand = "Contact";
         const string skilsCommand = "Skils";
-        const string 
+        const string languageCommand = "Language";
+        const string addresCommand = "Addres";
+        const string phoneCommand = "Phone";
         const string censelCommand = "Censel";
 
         static void Main(string[] args)
@@ -68,6 +70,31 @@ namespace resumeTelegramBot
                         chatId: update.Message.Chat.Id,
                         text: "John enjoys horse riding and studying languages",
                         replyMarkup: murkup);
+                }
+                if (update.Message.Text is languageCommand) 
+                {
+                    var murkup = MenuMurkup();
+                    await client.SendTextMessageAsync(
+                        chatId: update.Message.Chat.Id,
+                        text: "John speaks English, Russian and German",
+                        replyMarkup: murkup);
+                }
+                if (update.Message.Text is addresCommand)
+                {
+                    var murkup = MenuMurkup();
+                    await client.SendTextMessageAsync(
+                        chatId: update.Message.Chat.Id,
+                        text: "John lives on Albany Street in New York City, USA",
+                        replyMarkup: murkup);
+                }
+                if (update.Message.Text is phoneCommand)
+                {
+                    var murkup = MenuMurkup();
+                    await client.SendTextMessageAsync(
+                        chatId: update.Message.Chat.Id,
+                        text: "My phone number: +13329006170",
+                        replyMarkup: murkup);
+
                 }
 
                 if (update.Message.Text is censelCommand)
